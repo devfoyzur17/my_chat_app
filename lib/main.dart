@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
       800: Color.fromARGB(255, 255, 88, 88),
       900: Color.fromARGB(255, 252, 70, 70),
     };
-    MaterialColor appColor = MaterialColor(0xff00802b, pokeballRedSwatch);
+    MaterialColor appColor = MaterialColor(0xff0d875d, pokeballRedSwatch);
     return MaterialApp(
       
       title: 'Flutter Demo',
