@@ -14,6 +14,12 @@ class DBHelper {
 
   static Stream<QuerySnapshot<Map<String, dynamic>>> getAllUsers() => _db
       .collection(collectionUser)
-      .orderBy(userName, descending: true)
+      .orderBy(userUid, descending: true)
       .snapshots();
+
+ static Future<void> updateAvailable(String uid, bool isAvailable) async {
+   
+    _db.collection(collectionUser).doc(uid).update({userAvailable: isAvailable});
+  }
+    
 }

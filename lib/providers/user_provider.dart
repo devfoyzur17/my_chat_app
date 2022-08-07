@@ -14,4 +14,7 @@ class UserProvider extends ChangeNotifier {
           notifyListeners();
     });
   }
+
+  Future<void> updateAvailable(String uid, bool isAvailable)=> DBHelper.updateAvailable(uid, isAvailable);
+
 }
