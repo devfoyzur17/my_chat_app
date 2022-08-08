@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:my_chat_app/auth/auth_service.dart';
 import 'package:my_chat_app/models/user_model.dart';
 
 class DBHelper {
@@ -7,7 +8,7 @@ class DBHelper {
   static final FirebaseFirestore _db = FirebaseFirestore.instance;
 
   static Future<void> addUser(UserModel userModel) {
-    final doc = _db.collection(collectionUser).doc();
+    final doc = _db.collection(collectionUser).doc(AuthService.user!.uid);
 
     return doc.set(userModel.toMap());
   }

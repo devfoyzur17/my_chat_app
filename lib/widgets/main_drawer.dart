@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:my_chat_app/auth/auth_service.dart';
 import 'package:my_chat_app/pages/chat_room_page.dart';
 import 'package:my_chat_app/pages/login_page.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/user_provider.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({Key? key}) : super(key: key);
@@ -32,6 +35,8 @@ class MainDrawer extends StatelessWidget {
 
           ListTile(
             onTap: ()async{
+                Provider.of<UserProvider>(context,listen: false).updateAvailable(AuthService.user!.uid, false);
+       
               await AuthService.logOut();
               Navigator.pushReplacementNamed(context, LoginPage.routeName);
 

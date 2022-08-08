@@ -6,6 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:my_chat_app/auth/auth_service.dart';
 import 'package:my_chat_app/pages/launcher_page.dart';
 import 'package:my_chat_app/pages/sign_up_page.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/user_provider.dart';
 
 class LoginPage extends StatefulWidget {
   static const routeName = "login-page";
@@ -200,8 +203,8 @@ class _LoginPageState extends State<LoginPage> {
     if (formKey.currentState!.validate()) {
       try {
         await AuthService.login(emailController.text, passwordController.text);
-
-        if(mounted){
+       if(mounted){
+          Provider.of<UserProvider>(context,listen: false).updateAvailable(AuthService.user!.uid, true);
           Navigator.pushReplacementNamed(context, LauncherPage.routeName);
         }
       } on FirebaseAuthException catch (e) {

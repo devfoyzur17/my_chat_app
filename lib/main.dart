@@ -61,13 +61,13 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       case AppLifecycleState.paused:
         if(AuthService.user != null){
 
-         // Provider.of<UserProvider>(context,listen: false).updateAvailable(AuthService.user!.uid, false);
+          Provider.of<UserProvider>(context,listen: false).updateAvailable(AuthService.user!.uid, false);
         }
         break;
       case AppLifecycleState.resumed:
         if(AuthService.user != null){
 
-        //  Provider.of<UserProvider>(context,listen: false).updateAvailable(AuthService.user!.uid, true);
+          Provider.of<UserProvider>(context,listen: false).updateAvailable(AuthService.user!.uid, true);
         }
         break;
 
@@ -97,7 +97,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       800: Color.fromARGB(255, 6, 150, 59),
       900: Color.fromARGB(255, 6, 150, 59),
     };
-    MaterialColor appColor = MaterialColor(0xff0d875d, pokeballRedSwatch);
+    MaterialColor appColor = MaterialColor(0xff0f0f57, pokeballRedSwatch);
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
